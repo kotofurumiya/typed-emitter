@@ -1,6 +1,6 @@
 {
-  "name": "@kotufurumiya/typed-emitter",
-  "version": "1.0.0",
+  "name": "@kotofurumiya/typed-emitter",
+  "version": "1.0.1",
   "description": "Strongly typed simple event emitter with zero deps",
   "main": "dist/esm/index.js",
   "type": "module",
