@@ -1,0 +1,60 @@
+{
+  "name": "@kotufurumiya/typed-emitter",
+  "version": "1.0.0",
+  "description": "Strongly typed simple event emitter with zero deps",
+  "main": "dist/esm/index.js",
+  "type": "module",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/cjs/index.js",
+      "default": "./dist/esm/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "format": "prettier --write \"{src,tests,benchmark}/**/*\"",
+    "lint": "eslint --max-warnings 0 .",
+    "build": "tsc --project tsconfig.cjs.json && tsc --project tsconfig.esm.json",
+    "test": "npm run lint && node --loader ts-node/esm tests/emitter.test.ts",
+    "benchmark": "node --expose-gc benchmark/benchmark.js",
+    "prepare": "husky install"
+  },
+  "keywords": [
+    "event-emitter"
+  ],
+  "author": "Koto Furumiya <kotofurumiya@gmail.ocm>",
+  "license": "Zlib",
+  "homepage": "https://github.com/kotofurumiya/typed-emitter",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kotofurumiya/typed-emitter.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@types/node": "^15.0.2",
+    "@typescript-eslint/eslint-plugin": "^4.22.0",
+    "@typescript-eslint/parser": "^4.22.0",
+    "eslint": "^7.25.0",
+    "husky": "^6.0.0",
+    "lint-staged": "^10.5.4",
+    "prettier": "^2.2.1",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.4",
+    "uvu": "^0.5.1"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "npm run format",
+      "npm run test"
+    ],
+    "*.js": [
+      "npm run format",
+      "npm run test"
+    ]
+  }
+}
